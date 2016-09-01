@@ -45,26 +45,15 @@ public class App
 		            System.out.println("Gson zip "+address.getZip());
 
 		        }
-		        /*JsonArray array = new JsonArray(output);
-
-		        for (int i =0; i < array.size(); i++) {
-		            JSONObject row = array.getJSONObject(i);
-		            String user = row.getString("username");
-		            System.out.println(user);
-		        }*/
-
 		        conn.disconnect();
 
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 catch (ProtocolException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
