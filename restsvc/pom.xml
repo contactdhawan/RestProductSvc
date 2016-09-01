@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>sf.crom.restsvc</groupId>
+	<artifactId>restsvc</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<properties>
+		<spring.version>3.0.5.RELEASE</spring.version>
+		<jackson.version>1.9.10</jackson.version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<webXml>${basedir}/WebContent/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+			<plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-java2wadl-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <!-- Enable if support for Javadoc is required, not supported in CXF 2.7.11 -->
+                    <!--
+                    <execution>
+                        <id>parsejavadoc</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>parsejavadoc</goal>
+                        </goals>
+                    </execution>
+                    -->
+                    <execution>
+                        <id>process-classes</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>java2wadl</goal>
+                        </goals>
+                        <configuration>
+                            <classResourceNames>
+                                    <classResourceName>sf.crom.controllers.HelloController</classResourceName>
+                            </classResourceNames>
+                            <!-- Enable if support for Javadoc is required, not supported in CXF 2.7.11 -->
+                            <!--
+                            <docProvider>org.apache.cxf.maven_plugin.javatowadl.ResourceMapJavaDocProvider</docProvider>
+                            -->
+                            <attachWadl>true</attachWadl>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-service-description</artifactId>
+			<version>3.0.0-milestone1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring 3 dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>

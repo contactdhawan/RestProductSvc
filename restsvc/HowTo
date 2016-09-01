@@ -1,0 +1,3 @@
+http://localhost:8090/restsvc/services/hello/address
+http://localhost:8090/restsvc/services/hello/world
+clean install for wadl in target\generated\wadl
