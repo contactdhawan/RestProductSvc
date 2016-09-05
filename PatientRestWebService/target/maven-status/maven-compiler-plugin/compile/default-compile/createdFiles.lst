@@ -1,0 +1,8 @@
+sf\crom\patient\RestExceptionMapper.class
+sf\crom\patient\SomeException.class
+sf\crom\patient\PatientServiceImpl.class
+sf\crom\patient\PatientPojo.class
+sf\crom\patient\PatientService.class
+sf\crom\patient\Prescription.class
+PatientServiceClient.class
+sf\crom\patient\Medicine.class
